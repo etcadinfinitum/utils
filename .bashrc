@@ -38,7 +38,6 @@ path () {
         HOMECPY="`dirname $(pwd)`"
         MIDDLE=${HOMECPY:$HOMELEN}
         if [[ -z ${MIDDLE} ]]; then
-            # echo "string failed empty test in conditional"
             MIDDLE="/"
         else
             MIDDLE="${MIDDLE}/"
@@ -59,4 +58,3 @@ exitcode() {
 }
 
 PS1="\$(exitcode)\[${COLOR_LIGHT_PURPLE}\]\u\[${COLOR_GRAY}\]@\[${COLOR_LIGHT_GREEN}\]\h: \[${COLOR_GRAY}\]\$(path)\[${COLOR_TEAL}\]\W \[${COLOR_GRAY}\]\$\[${COLOR_NC}\] "
-
