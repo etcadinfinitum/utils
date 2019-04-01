@@ -5,8 +5,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-alias vim='vimx'
-
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
@@ -16,16 +14,28 @@ export PATH
 
 # User specific aliases and functions
 alias python3='python3.6'
+alias vim='vimx'
 
 # fancy colored prompt
-export COLOR_LIGHT_GREEN='\e[1;32m'
-export COLOR_LIGHT_PURPLE='\e[1;35m'
-export COLOR_GRAY='\e[1;30m'
-export COLOR_NC='\e[0m'
-export COLOR_TEAL='\e[36m'
-export COLOR_GREEN='\e[32m'
-export COLOR_RED='\e[31m'
+export C_NC='\e[0m' # No Color
+export C_WHITE='\e[1;37m'
+export C_BLACK='\e[0;30m'
+export C_BLUE='\e[0;34m'
+export C_LIGHT_BLUE='\e[1;34m'
+export C_GREEN='\e[0;32m'
+export C_LIGHT_GREEN='\e[1;32m'
+export C_CYAN='\e[0;36m'
+export C_LIGHT_CYAN='\e[1;36m'
+export C_RED='\e[0;31m'
+export C_LIGHT_RED='\e[1;31m'
+export C_PURPLE='\e[0;35m'
+export C_LIGHT_PURPLE='\e[1;35m'
+export C_BROWN='\e[0;33m'
+export C_YELLOW='\e[1;33m'
+export C_GRAY='\e[0;30m'
+export C_LIGHT_GRAY='\e[0;37m'
 
+# deconstruct the working directory
 path () {
     if [ $(pwd) == "/" ]; then
         :
@@ -49,12 +59,17 @@ path () {
     fi
 }
 
+# show command success or failure
 exitcode() {
     if [ $? == 0 ]; then
-        echo -e "${COLOR_GREEN}:) "
+        echo -e "${C_GREEN}:) "
     else
-        echo -e "${COLOR_RED}:( "
+        echo -e "${C_RED}:( "
     fi
 }
 
-PS1="\$(exitcode)\[${COLOR_LIGHT_PURPLE}\]\u\[${COLOR_GRAY}\]@\[${COLOR_LIGHT_GREEN}\]\h: \[${COLOR_GRAY}\]\$(path)\[${COLOR_TEAL}\]\W \[${COLOR_GRAY}\]\$\[${COLOR_NC}\] "
+# purple + green + teal color scheme
+# PS1="\$(exitcode)\[${C_LIGHT_PURPLE}\]\u\[${C_GRAY}\]@\[${C_LIGHT_GREEN}\]\h: \[${C_GRAY}\]\$(path)\[${C_TEAL}\]\W \[${C_GRAY}\]\$\[${C_NC}\] "
+
+# blue + gold color scheme
+PS1="\$(exitcode)\[${C_YELLOW}\]\u\[${C_BLUE}\]@\[${C_BROWN}\]\h: \[${C_BLUE}\]\$(path)\[${C_LIGHT_BLUE}\]\W \[${C_BROWN}\]\$\[${C_NC}\] "
