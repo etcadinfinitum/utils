@@ -63,9 +63,9 @@ path () {
 # show command success or failure
 exitcode() {
     if [ $? == 0 ]; then
-        echo -e "${C_GREEN}:) "
+        echo -e "\001${C_GREEN}\002:) "
     else
-        echo -e "${C_RED}:( "
+        echo -e "\001${C_RED}\002:( "
     fi
 }
 
