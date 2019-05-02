@@ -15,6 +15,7 @@ export PATH
 # User specific aliases and functions
 alias python3='python3.6'
 alias vim='vimx'
+alias yass='yes'
 
 # fancy colored prompt
 export C_NC='\e[0m' # No Color
