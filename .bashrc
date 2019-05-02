@@ -73,7 +73,7 @@ exitcode() {
 }
 
 # purple + green + teal color scheme
-# PS1="\$(exitcode)\[${C_LIGHT_PURPLE}\]\u\[${C_GRAY}\]@\[${C_LIGHT_GREEN}\]\h: \[${C_GRAY}\]\$(path)\[${C_TEAL}\]\W \[${C_GRAY}\]\$\[${C_NC}\] "
+# PS1="\$(exitcode)\[${C_LIGHT_PURPLE}\]\u\[${C_GRAY}\]@\[${C_LIGHT_GREEN}\]\h: \[${C_GRAY}\]\$(path)\[${C_LIGHT_CYAN}\]\W \[${C_GRAY}\]\$\[${C_NC}\] "
 
 # blue + gold color scheme
 PS1="\$(exitcode)\[${C_YELLOW}\]\u\[${C_BLUE}\]@\[${C_BROWN}\]\h: \[${C_BLUE}\]\$(path)\[${C_LIGHT_BLUE}\]\W \[${C_BROWN}\]\$\[${C_NC}\] "
