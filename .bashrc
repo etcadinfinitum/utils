@@ -61,6 +61,9 @@ path () {
 }
 
 # show command success or failure
+# syntax error with escape sequences: see
+# https://superuser.com/questions/301353/escape-non-printing-characters-in-a-function-for-a-bash-prompt
+# for details
 exitcode() {
     if [ $? == 0 ]; then
         echo -e "\001${C_GREEN}\002:) "
