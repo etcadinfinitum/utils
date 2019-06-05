@@ -66,9 +66,9 @@ path () {
 # for details
 exitcode() {
     if [ $? == 0 ]; then
-        echo -e "\001${C_GREEN}\002:) "
+        echo -e "\x01${C_GREEN}\x02:) "
     else
-        echo -e "\001${C_RED}\002:( "
+        echo -e "\x01${C_RED}\x02:( "
     fi
 }
 
