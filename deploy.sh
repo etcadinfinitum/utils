@@ -5,7 +5,6 @@ if [[ -f ~/.bashrc ]]; then
     mv ~/.bashrc ~/.bashrc_OLD
 fi
 cp ./.bashrc ~/.bashrc
-source ~/.bashrc
 
 echo "Deploying .vimrc"
 if [[ -f ~/.vimrc ]]; then
@@ -26,4 +25,5 @@ else
     perl 256color.pl
 fi
 
-exit 0
+# execute bash to get new prompt and bash features in terminal session
+exec bash
