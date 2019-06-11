@@ -42,6 +42,9 @@ elif [[ `gpg --list-keys | grep -i "Lizzy" | wc -l` == 0 ]]; then
 else
     gpg --list-keys
     echo -e "\n\n****** Please add your gpg key to git. ******"
+    echo -e "\tUse:   git config --global user.signingKey"
+    echo -e "\t\tNote: Make sure to add the correct signing key from the gpg output above "
+    echo -e "\t\tand upload your key to your remote host (GitHub et. al.) as needed."
 fi
 echo -e "\tNOTE: git commits will not function until a keyring is available."
 
