@@ -4,6 +4,8 @@ cp ~/.bashrc .
 cp ~/.vimrc .
 cp ~/vpn.sh .
 cp ~/lab.sh .
+if [[ ! -d colors_vim/ ]]; then mkdir colors_vim/; fi
+cp ~/.vim/colors/*.vim colors_vim/
 cat ~/.gitconfig | grep -v signingKey > .gitconfig
 git diff
 
@@ -30,3 +32,6 @@ rm .bashrc
 rm .vimrc
 rm vpn.sh
 rm lab.sh
+rm .gitconfig
+rm colors_vim/*.vim
+rmdir colors_vim/

@@ -12,6 +12,13 @@ if [[ -f ~/.vimrc ]]; then
 fi
 cp ./.vimrc ~/.vimrc
 
+if [[ -d ~/.vim ]]; then
+    if [[ ! -d ~/.vim/colors/ ]]; then
+        mkdir ~/.vim/colors/
+    fi
+    cp colors_vim/*.vim ~/.vim/colors/
+fi
+
 if [[ `which vim | wc -l` == 0 ]]; then
     echo "!!! WARNING !!!"
     echo -e "\tvim is not installed. Consider installing it using apt or via your preferred package manager."
