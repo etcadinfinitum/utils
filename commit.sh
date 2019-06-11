@@ -4,6 +4,7 @@ cp ~/.bashrc .
 cp ~/.vimrc .
 cp ~/vpn.sh .
 cp ~/lab.sh .
+cat ~/.gitconfig | grep -v signingKey > .gitconfig
 git diff
 
 echo -e "\n\nRunning git commit now"

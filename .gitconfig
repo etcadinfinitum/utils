@@ -1,0 +1,10 @@
+[user]
+	email = lizzy.presland@gmail.com
+	name = etcadinfinitum
+[core]
+    editor = vim
+[alias]
+    commit = commit -S
+[commit]
+	gpgSign = true
+    verbose = true
