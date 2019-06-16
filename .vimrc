@@ -32,3 +32,16 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-J> <C-W><C-J>
 
 set cc=70
+
+" define a function which returns the syntax highlight groups under the
+" current cursor.
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+
+" allow the syntax item call to be made from the status line
+" (comment this out if it clutters the line)
+set statusline+=%{SyntaxItem()}
+
+" always show 2nd status line (for syntax highlighting groups
+set laststatus=2
