@@ -65,4 +65,8 @@ if has('statusline')
   set statusline+=%-7.(%l,%c%V%)\ %<%P         " cursor position/offset
 endif
 
-
+augroup vimrc_todo
+    au!
+    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX)( |:)/ containedin=.*Comment,vimCommentTitle
+augroup END
+hi def link MyTodo Todo
