@@ -18,7 +18,17 @@ $ bash deploy.sh
 
 #### GPG
 
+##### General
+
 [A nice overview on GPG usage in the command line.](http://blog.ghostinthemachines.com/2015/03/01/how-to-use-gpg-command-line/)
+
+##### RiseUp.net Best Practices
+
+[Advice on key management and algorithm choice from riseup.net.](https://riseup.net/en/security/message-security/openpgp/best-practices)
+
+[Publicly notify change in keys for people on your chain of trust.](https://riseup.net/en/security/message-security/openpgp/key-transition)
+
+##### GitHub Usage
 
 [An overview on creating a new GPG key (as explained by GitHub).](https://help.github.com/en/articles/generating-a-new-gpg-key)
 
