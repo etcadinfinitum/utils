@@ -14,7 +14,6 @@ export PATH
 
 # User specific aliases and functions
 alias python3='python3.6'
-alias vim='vimx'
 alias yass='yes'
 
 # fancy colored prompt
@@ -33,7 +32,7 @@ export C_PURPLE='\e[0;35m'
 export C_LIGHT_PURPLE='\e[1;35m'
 export C_BROWN='\e[0;33m'
 export C_YELLOW='\e[1;33m'
-export C_GRAY='\e[0;30m'
+export C_GRAY='\e[1;30m'
 export C_LIGHT_GRAY='\e[0;37m'
 
 # deconstruct the working directory
@@ -73,7 +72,11 @@ exitcode() {
 }
 
 # purple + green + teal color scheme
-# PS1="\$(exitcode)\[${C_LIGHT_PURPLE}\]\u\[${C_GRAY}\]@\[${C_LIGHT_GREEN}\]\h: \[${C_GRAY}\]\$(path)\[${C_LIGHT_CYAN}\]\W \[${C_GRAY}\]\$\[${C_NC}\] "
+PS1="\$(exitcode)\[${C_LIGHT_PURPLE}\]\u\[${C_GRAY}\]@\[${C_LIGHT_GREEN}\]\h: \[${C_GRAY}\]\$(path)\[${C_LIGHT_CYAN}\]\W \[${C_GRAY}\]\$\[${C_NC}\] "
 
 # blue + gold color scheme
-PS1="\$(exitcode)\[${C_YELLOW}\]\u\[${C_BLUE}\]@\[${C_BROWN}\]\h: \[${C_BLUE}\]\$(path)\[${C_LIGHT_BLUE}\]\W \[${C_BROWN}\]\$\[${C_NC}\] "
+# PS1="\$(exitcode)\[${C_YELLOW}\]\u\[${C_BLUE}\]@\[${C_BROWN}\]\h: \[${C_BLUE}\]\$(path)\[${C_LIGHT_BLUE}\]\W \[${C_BROWN}\]\$\[${C_NC}\] "
+
+export PATH=/usr/local/go/bin:$PATH
+export GOPATH="$HOME/code/go"
+export GOBIN="$GOPATH/bin"
