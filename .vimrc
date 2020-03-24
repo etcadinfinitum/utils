@@ -33,6 +33,12 @@ nnoremap <C-J> <C-W><C-J>
 
 set cc=70
 
+" support Motorola 68k file syntax with atypical extensions
+augroup filetypedetect
+    au BufRead,BufNewFile *.X68 setfiletype asm68k
+    au BufRead,BufNewFile *.x68 setfiletype asm68k
+augroup END
+
 " define a function which returns the syntax highlight groups under the
 " current cursor.
 function! SyntaxItem()
@@ -67,6 +73,6 @@ endif
 
 augroup vimrc_todo
     au!
-    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX)( |:)/ containedin=.*Comment,vimCommentTitle
+    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|REMOVE)( |:)/ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
