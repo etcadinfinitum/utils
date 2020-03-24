@@ -15,7 +15,7 @@ cp ./.bashrc $HOME
 echo -e "\nRunning install utilities now...\n"
 
 # git, java8, python3, vim
-sudo apt-get install build-essential git python3-dev python3 vim openjdk-8-jre curl
+sudo apt-get install build-essential git python3-dev python3 vim openjdk-8-jre curl vim-gtk
 
 echo -e "\nCompleted installation of core packages.\n"
 
@@ -33,9 +33,20 @@ fi
 echo -e "\nInstalled Golang."
 go version
 
-echo -e "\nInstalling pathogen for vim + deploying colorscheme."
+echo -e "\nInstalling pathogen for vim."
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-mkdir -p ~/.vim/colors && cp ./colors_vim/vimbrant.vim ~/.vim/colors
+
+echo -e "\nInstalling colorschemes and simple utils for vim."
+cd ~/.vim/bundle
+git clone https://github.com/stevearc/vim-arduino &> /dev/null
+if [[ $? == 0 ]]; then echo "Arduino plugin installed. Download the Arduino IDE here: https://www.arduino.cc/en/Main/Software"; else echo "Arduino plugin install failed."; fi
+git clone https://github.com/dracula/vim > /dev/null
+git clone https://github.com/thayerwilliams/vimbrant > /dev/null
+if [[ ! -d vimbrant/colors ]]; then 
+    mkdir -p vimbrant/colors
+    cp vimbrant/vimbrant.vim vimbrant/colors
+fi
+git clone https://github.com/jnurmine/Zenburn > /dev/null
 
 echo -e "\nInstalling YouCompleteMe for vim."
 cd ~/.vim/bundle
@@ -43,5 +54,3 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe
 git submodule update --init --recursive
 python3 install.py --clang-completer --java-completer --go-completer --rust-completer
-
-
