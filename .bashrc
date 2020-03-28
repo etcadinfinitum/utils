@@ -5,6 +5,13 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+GITCOMPLETE="/usr/share/bash-completion/completions/git"
+
+# Source git-bash completion script
+if [ -e $GITCOMPLETE ]; then
+    source $GITCOMPLETE
+fi
+
 # User specific environment
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
