@@ -95,3 +95,30 @@ PS1="\$(exitcode)\[${C_LIGHT_GREEN}\]\u\[${C_PURPLE}\]@\[${C_GREEN}\]\h: \[${C_C
 export GOPATH="$HOME/code/go"
 export GOBIN="$GOPATH/bin"
 export PATH=$GOBIN:$PATH
+export PATH=/usr/local/go/bin:$PATH
+
+# Do a nifty check to add the github ssh key to the 
+# bash session when cd'ing into a git repo...
+add_github_key() {
+    git rev-parse --is-inside-work-tree &> /dev/null
+    if [[ $? == 0 ]]; then
+        if [[ -e ~/.ssh/github ]]; then
+            if [[ -z $SSH_AGENT_PID ]]; then
+                echo "Setting SSH agent."
+                eval `ssh-agent bash` &> /dev/null
+            fi
+            key=$(cat ~/.ssh/github.pub)
+            if [[ `ssh-add -L | grep "${key}" | wc -l` == 0 ]]; then
+                # echo "NO KEY FOUND"
+                # echo "ssh-add -L output:"
+                # ssh-add -L
+                ssh-add ~/.ssh/github
+            fi
+        else
+            # No key file! Bad!
+            return
+        fi
+    fi
+}
+
+PROMPT_COMMAND+="add_github_key;"
