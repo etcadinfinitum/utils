@@ -22,6 +22,7 @@ export PATH
 # User specific aliases and functions
 alias python3='python3.6'
 alias yass='yes'
+alias clear='clear && fortune | cowsay -f unipony-smaller'
 
 # LS_COLORS schema
 alias ls='ls --color'
