@@ -74,22 +74,12 @@ if [[ ! -d ~/.vim/bundle/Zenburn ]]; then
     git clone https://github.com/jnurmine/Zenburn > /dev/null
 fi
 
-# install cmake!
-if [[ ! -d ~/.vim/bundle/YouCompleteMe && `which cmake | wc -l` == 0 ]]; then
-    echo -e "\nInstalling cmake."
-    cd /usr/local/bin
-    sudo wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz
-    sudo tar -zxvf cmake-3.15.2.tar.gz > /dev/null
-    cd cmake-3.15.2
-    sudo ./bootstrap
-    sudo make
-    sudo make install
-    cmake --version
-    if [[ $? != 0 ]]; then echo "cmake installation failed. Exiting."; exit 1; fi
-    echo -e "\nInstalling YouCompleteMe for vim."
-    cd ~/.vim/bundle
-    git clone https://github.com/Valloric/YouCompleteMe.git
-    cd YouCompleteMe
-    git submodule update --init --recursive
-    python3 install.py --clang-completer --java-completer --go-completer --rust-completer
+# color highlighting for front end code files
+if [[ ! -d ~/.vim/bundle/vim-css-color ]]; then
+    git clone https://github.com/ap/vim-css-color > /dev/null
+fi
+
+# add the sweet airline status line
+if [[ ! -d ~/.vim/bundle/vim-airline ]]; then
+    git clone https://github.com/vim-airline/vim-airline > /dev/null
 fi
