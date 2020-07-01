@@ -13,8 +13,16 @@ cp ./.bashrc $HOME
 
 echo -e "\nRunning install utilities now...\n"
 
-# git, java8, python3, vim
-sudo apt-get install -y build-essential git python3 python3-dev python3-pip curl vim vim-gtk tree fortune-mod java-devel valgrind lshw htop g++ gcc clang libtinfo5 dnsutils pandoc texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra wkhtmltopdf fortune cowsay screen tmux &> /dev/null
+# core utilities
+sudo apt-get install -y \
+    build-essential git screen tmux curl lshw htop dnsutils software-properties-common \
+    python3 python3-dev python3-pip \
+    default-jre default-jdk java-devel g++ gcc clang valgrind \
+    vim vim-gtk libtinfo5 powerline \
+    pandoc texlive-latex-base texlive-fonts-recommended \
+    texlive-fonts-extra texlive-latex-extra wkhtmltopdf \
+    fortune-mod cowsay tree \
+        &> /dev/null
 
 echo -e "\nCompleted installation of core packages.\n"
 
