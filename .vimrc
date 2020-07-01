@@ -39,40 +39,11 @@ augroup filetypedetect
     au BufRead,BufNewFile *.x68 setfiletype asm68k
 augroup END
 
-" define a function which returns the syntax highlight groups under the
-" current cursor.
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-
-" allow the syntax item call to be made from the status line
-" (comment this out if it clutters the line)
-set statusline+=%{SyntaxItem()}
-
-" always show 2nd status line (for syntax highlighting groups
-set laststatus=2
-
-" a cooler status line
-if has('statusline')
-  set statusline=%#Question#                   " set highlighting
-  set statusline+=%-2.2n\                      " buffer number
-  set statusline+=%#WarningMsg#                " set highlighting
-  set statusline+=%f\                          " file name
-  set statusline+=%#Question#                  " set highlighting
-  set statusline+=%h%m%r%w\                    " flags
-  set statusline+=%{strlen(&ft)?&ft:'none'},   " file type
-  set statusline+=%{(&fenc==\"\"?&enc:&fenc)}, " encoding
-  set statusline+=%{((exists(\"+bomb\")\ &&\ &bomb)?\"B,\":\"\")} " BOM
-  set statusline+=%{&fileformat},              " file format
-  set statusline+=%{&spelllang},               " language of spelling checker
-  set statusline+=%{SyntaxItem()}              " syntax highlight group under cursor
-  set statusline+=%=                           " ident to the right
-  set statusline+=0x%-8B\                      " character code under cursor
-  set statusline+=%-7.(%l,%c%V%)\ %<%P         " cursor position/offset
-endif
-
 augroup vimrc_todo
     au!
     au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|REMOVE)( |:)/ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
+
+" vim-airline status line things
+let g:airline_powerline_fonts = 1

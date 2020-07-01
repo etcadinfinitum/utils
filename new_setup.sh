@@ -47,39 +47,41 @@ fi
 
 echo -e "\nInstalling colorschemes and simple utils for vim."
 cd ~/.vim/bundle
-# arduino plugin
-if [[ ! -d ~/.vim/bundle/vim-arduino ]]; then 
-    git clone https://github.com/stevearc/vim-arduino &> /dev/null
-    if [[ $? == 0 ]]; then 
-        echo "Arduino plugin installed. Download the Arduino IDE here: https://www.arduino.cc/en/Main/Software"
-    else 
-        echo "Arduino plugin install failed."
-    fi
-fi
-# dracula color scheme
+
+# color schemes
 if [[ ! -d ~/.vim/bundle/dracula ]]; then
+    # zenburn
+    git clone https://github.com/jnurmine/Zenburn > /dev/null
+    # dracula
     git clone https://github.com/dracula/vim > /dev/null
     mv vim/ dracula/
-fi
-# vimbrant color scheme
-if [[ ! -d ~/.vim/bundle/vimbrant ]]; then
+    # vimbrant (default per vimrc)
     git clone https://github.com/thayerwilliams/vimbrant > /dev/null
     if [[ ! -d vimbrant/colors ]]; then 
         mkdir -p vimbrant/colors
         cp vimbrant/vimbrant.vim vimbrant/colors
     fi
 fi
-# zenburn color scheme
-if [[ ! -d ~/.vim/bundle/Zenburn ]]; then
-    git clone https://github.com/jnurmine/Zenburn > /dev/null
-fi
 
-# color highlighting for front end code files
-if [[ ! -d ~/.vim/bundle/vim-css-color ]]; then
-    git clone https://github.com/ap/vim-css-color > /dev/null
-fi
-
-# add the sweet airline status line
+# more nice plugins
 if [[ ! -d ~/.vim/bundle/vim-airline ]]; then
+
+    # sick AF status line
     git clone https://github.com/vim-airline/vim-airline > /dev/null
+    git clone https://github.com/vim-airline/vim-airline-themes > /dev/null
+
+    # color highlighting for named/rgb/hex colors
+    git clone https://github.com/ap/vim-css-color > /dev/null
+
+    # fugitive (for git, status line)
+    git clone https://github.com/tpope/vim-fugitive > /dev/null
+
+    # arduino (syntax for .ino files, also other things)
+    git clone https://github.com/stevearc/vim-arduino &> /dev/null
+    if [[ $? == 0 ]]; then 
+        echo "Arduino plugin installed. Download the Arduino IDE here: https://www.arduino.cc/en/Main/Software"
+    else 
+        echo "Arduino plugin install failed."
+    fi
+
 fi
